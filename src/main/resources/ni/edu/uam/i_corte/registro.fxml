@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?><?import javafx.scene.layout.VBox?><?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.i_corte.controller.RegistroController">
+    <padding>
+        <Insets top="20" right="40" bottom="20" left="40"/>
+    </padding>
+
+    <Label text="Registro de Cita Médica" styleClass="titulo"/>
+
+    <GridPane hgap="10" vgap="15" alignment="CENTER">
+        <Label text="Nombre del Paciente:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtNombre" promptText="Ej. Juan Pérez" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtTelefono" promptText="Ej. 88888888" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Fecha de la Cita:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <DatePicker fx:id="dpFecha" promptText="Seleccione una fecha" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Guardar Cita" onAction="#guardarCita" styleClass="btn-primario"/>
+        <Button text="Ver Consultas" onAction="#irAConsultas" styleClass="btn-secundario"/>
+    </HBox>
+</VBox>
