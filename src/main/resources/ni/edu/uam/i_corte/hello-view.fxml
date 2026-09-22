@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ni.edu.uam.i_corte.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ni.edu.uam.i_corte.HelloController">
+    <top><VBox spacing="4"><Label text="AGENDA SALUD"/><Label text="Agenda tus citas médicas de forma sencilla"/></VBox></top>
+    <center><VBox spacing="18" alignment="TOP_CENTER" maxWidth="620"><padding><Insets top="28" right="42" bottom="22" left="42"/></padding>
+        <HBox alignment="CENTER_LEFT" spacing="12"><Label fx:id="stepLabel" text="PASO 1 DE 3"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="formTitle" text="Datos del paciente"/></HBox>
+        <StackPane VBox.vgrow="ALWAYS">
+            <VBox fx:id="stepPatient" spacing="14"><Label text="Comencemos con tus datos"/><Label text="Nombre completo"/><TextField fx:id="patientName" promptText="Ej. Ana López"/><Label text="Teléfono"/><TextField fx:id="patientPhone" promptText="Ej. 8888-8888"/><Label text="Usaremos estos datos solo para identificar tu cita."/></VBox>
+            <VBox fx:id="stepAppointment" spacing="14"><Label text="Elige cuándo y para qué"/><Label text="Fecha de la cita"/><DatePicker fx:id="appointmentDate" maxWidth="1.7976931348623157E308"/><Label text="Hora disponible"/><ComboBox fx:id="appointmentTime" promptText="Selecciona una hora" maxWidth="1.7976931348623157E308"/><Label text="Motivo de la consulta"/><TextArea fx:id="reason" promptText="Describe brevemente el motivo..." prefRowCount="3" wrapText="true"/><Label text="La fecha no puede ser anterior a hoy."/></VBox>
+            <VBox fx:id="stepSummary" spacing="16"><Label text="Todo listo"/><Label text="Confirma que los datos sean correctos:"/><Label fx:id="summaryLabel" text="" wrapText="true"/><Label fx:id="successLabel" text=""/><Button text="Agendar otra cita" onAction="#startNew" maxWidth="1.7976931348623157E308"/></VBox>
+        </StackPane>
+        <Label fx:id="errorLabel" text="" wrapText="true"/>
+        <HBox spacing="12" alignment="CENTER_RIGHT"><Button fx:id="backButton" text="← Regresar" onAction="#goBack"/><Region HBox.hgrow="ALWAYS"/><Button fx:id="nextButton" text="Continuar →" onAction="#goNext"/><Button fx:id="confirmButton" text="Confirmar cita" onAction="#confirmAppointment"/></HBox>
+    </VBox></center>
+</BorderPane>
